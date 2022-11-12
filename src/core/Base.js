@@ -17,8 +17,8 @@ import Menu  from './Menu'
                 </div>
                     <div className={className}>{children}</div>
             </div>
-            <footer className="footer bg-dark mt-auto">
-                <div className="container-fluid bg-info text-white text-center py-4">
+            <footer className="footer bg-dark mt-auto py-3">
+                <div className="container-fluid bg-info text-white text-center py-3">
                     <h1>Course Hub</h1>
                     <NavLink to="/Home"><button className="btn btn-muted btn-lg text-muted">Home</button></NavLink>{"\u00a0\u00a0"}
                     <button className="btn btn-muted btn-lg text-white">Contact Us</button>{"\u00a0\u00a0"}

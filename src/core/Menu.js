@@ -22,7 +22,8 @@ return(
           Home
         </NavLink>
       </li>
-      <li className="nav-item">
+      {isAuthenticated() && isAuthenticated().data.user.role === 0 &&(
+        <li className="nav-item">
         <NavLink
           style={({ isActive }) => {
             return {
@@ -33,10 +34,13 @@ return(
           className="nav-link"
           to="/dashboard"
         >
-          Dashboard
+          u.Dashboard
         </NavLink>
       </li>
-      <li className="nav-item">
+      )}
+
+      {isAuthenticated() && isAuthenticated().data.user.role === 1 && (
+        <li className="nav-item">
         <NavLink
           style={({ isActive }) => {
             return {
@@ -50,6 +54,8 @@ return(
           A.Dashboard
         </NavLink>
       </li>
+      )}
+
       {!isAuthenticated() && (
         <Fragment>
       <li className="nav-item">

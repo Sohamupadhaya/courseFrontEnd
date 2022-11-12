@@ -6,14 +6,14 @@ import {signin,autnenticate,isAuthenticated} from "../auth/helper"
 
 const Signin = () => {
     const [values,setValues] = useState({
-        emailId:"ashish@gmail.com",
+        emailId:"a@gmail.com",
         password:"12345",
         error:"",
         loading:false,
         didRedirect:false
     })
     const {emailId,password,error,loading,didRedirect} = values
-    const {user} = isAuthenticated();
+    const {data} = isAuthenticated();
 
     const handleChange = (name) => event=>{
         setValues({...values,error:false,[name]:event.target.value})
@@ -38,12 +38,15 @@ const Signin = () => {
 
     const peformRedirect = () =>{
         if (didRedirect) {
-            if (user && user.role===1) {
-                return(<p>redirect to admin</p>)
+            if (data.user && data.user.role===1) {
+                return <Navigate to="/admin/dashboard"/>
             }
             else {
-                return <p>redirect to user dashboard</p>
+                return <Navigate to="/dashboard"/>
             }
+        }
+        if (isAuthenticated()){
+            return <Navigate to="/" />
         }
     }
     const loadingMessage = () => {
